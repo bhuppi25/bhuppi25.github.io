@@ -90,7 +90,7 @@ const experiences: Experience[] = [
 export default function Experience() {
     return (
         <section
-            id="experience"
+            id="Experience"
             className="py-24 px-6"
         >
             <div className="max-w-6xl mx-auto">
