@@ -1,75 +1,116 @@
-const skillGroups = {
-    Backend: [
-        "Java",
-        "Spring Boot",
-        "Node.js",
-        "Python"
-    ],
+import {
+    FaJava,
+    FaAws,
+    FaDocker,
+    FaPython,
+    FaNodeJs,
+    FaGitAlt,
+} from "react-icons/fa";
 
-    Architecture: [
-        "Microservices",
-        "System Design",
-        "DDD",
-        "Event Driven Architecture"
-    ],
+import {
+    SiSpringboot,
+    SiApachekafka,
+    SiKubernetes,
+    SiTerraform,
+    SiMongodb,
+    SiMysql,
+    SiElasticsearch,
+    SiPrometheus,
+    SiGrafana,
+} from "react-icons/si";
 
-    Cloud: [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-    ],
+const skills = [
+    {
+        category: "Backend",
+        items: [
+            { name: "Java", icon: <FaJava /> },
+            { name: "Spring Boot", icon: <SiSpringboot /> },
+            { name: "Node.js", icon: <FaNodeJs /> },
+            { name: "Python", icon: <FaPython /> },
+        ],
+    },
 
-    Data: [
-        "Kafka",
-        "MongoDB",
-        "MySQL",
-        "Elasticsearch"
-    ],
+    {
+        category: "Data & Messaging",
+        items: [
+            { name: "Kafka", icon: <SiApachekafka /> },
+            { name: "MongoDB", icon: <SiMongodb /> },
+            { name: "MySQL", icon: <SiMysql /> },
+            { name: "Elasticsearch", icon: <SiElasticsearch /> },
+        ],
+    },
 
-    Monitoring: [
-        "Prometheus",
-        "Grafana",
-        "Elastic APM"
-    ]
-};
+    {
+        category: "Cloud & DevOps",
+        items: [
+            { name: "AWS", icon: <FaAws /> },
+            { name: "Docker", icon: <FaDocker /> },
+            { name: "Kubernetes", icon: <SiKubernetes /> },
+            { name: "Terraform", icon: <SiTerraform /> },
+            { name: "Git", icon: <FaGitAlt /> },
+        ],
+    },
+
+    {
+        category: "Observability",
+        items: [
+            { name: "Prometheus", icon: <SiPrometheus /> },
+            { name: "Grafana", icon: <SiGrafana /> },
+        ],
+    },
+];
 
 export default function Skills() {
     return (
         <section
-            id="skills"
-            className="py-24 px-6 bg-gray-50 dark:bg-gray-900"
+            id="Skills"
+            className="py-24 px-6"
         >
-            <div className="max-w-6xl mx-auto">
-                <h2 className="text-4xl font-bold mb-12">
-                    Technical Skills
+            <div className="max-w-7xl mx-auto">
+
+                <h2 className="text-5xl font-bold mb-12">
+                    Technical Expertise
                 </h2>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-12">
 
-                    {Object.entries(skillGroups).map(
-                        ([category, skills]) => (
-                            <div
-                                key={category}
-                                className="border rounded-xl p-6"
-                            >
-                                <h3 className="text-xl font-semibold mb-4">
-                                    {category}
-                                </h3>
+                    {skills.map((group) => (
+                        <div key={group.category}>
 
-                                <div className="flex flex-wrap gap-3">
-                                    {skills.map((skill) => (
-                                        <span
-                                            key={skill}
-                                            className="px-3 py-2 rounded-lg bg-blue-100 dark:bg-blue-900"
-                                        >
-                      {skill}
-                    </span>
-                                    ))}
-                                </div>
+                            <h3 className="text-2xl font-semibold mb-6 text-blue-400">
+                                {group.category}
+                            </h3>
+
+                            <div className="grid md:grid-cols-4 gap-6">
+
+                                {group.items.map((skill) => (
+                                    <div
+                                        key={skill.name}
+                                        className="
+                    bg-zinc-900
+                    border
+                    border-zinc-800
+                    rounded-3xl
+                    p-6
+                    hover:border-blue-500
+                    hover:-translate-y-1
+                    transition
+                    "
+                                    >
+                                        <div className="text-5xl text-blue-500 mb-4">
+                                            {skill.icon}
+                                        </div>
+
+                                        <h4 className="font-medium">
+                                            {skill.name}
+                                        </h4>
+                                    </div>
+                                ))}
+
                             </div>
-                        )
-                    )}
+
+                        </div>
+                    ))}
 
                 </div>
             </div>

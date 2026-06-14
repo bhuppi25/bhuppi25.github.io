@@ -7,6 +7,8 @@ ReactDOM.createRoot(
     document.getElementById("root")!
 ).render(
     <HelmetProvider>
-        <App/>
+        <div className="grid-bg min-h-screen">
+            <App />
+        </div>
     </HelmetProvider>
 );

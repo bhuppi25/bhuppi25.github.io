@@ -1,42 +1,27 @@
-import { useForm } from "react-hook-form";
-
 export default function Contact() {
-
-    const { register, handleSubmit } =
-        useForm();
-
-    const onSubmit = (data: any) => {
-        console.log(data);
-    };
-
     return (
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4"
+        <section
+            id="Contact"
+            className="py-24 px-6"
         >
-            <input
-                {...register("name")}
-                placeholder="Name"
-                className="w-full border p-3"
-            />
+            <div className="max-w-3xl mx-auto text-center">
 
-            <input
-                {...register("email")}
-                placeholder="Email"
-                className="w-full border p-3"
-            />
+                <h2 className="text-4xl font-bold">
+                    Let's Connect
+                </h2>
 
-            <textarea
-                {...register("message")}
-                placeholder="Message"
-                className="w-full border p-3"
-            />
+                <p className="text-zinc-400 mt-4">
+                    Open to leadership, architecture and consulting opportunities.
+                </p>
 
-            <button
-                className="bg-black text-white px-6 py-3"
-            >
-                Send
-            </button>
-        </form>
+                <a
+                    href="mailto:yadavbhupendra25@gmail.com"
+                    className="inline-block mt-8 bg-blue-600 px-8 py-4 rounded-xl"
+                >
+                    Contact Me
+                </a>
+
+            </div>
+        </section>
     );
 }
